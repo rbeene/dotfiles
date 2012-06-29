@@ -15,6 +15,9 @@
 	go = checkout -B
 	# Undo a `git push`
 	undopush = push -f origin HEAD^:master
+	up = !git fetch origin && git rebase origin/master && git submodule update
+  ir = !git rebase -i origin/master
+  done = !rake && git fetch && git rebase origin/master && git checkout master && git merge @{-1} && git push
 
 [apply]
 	# Detect whitespace errors when applying a patch
@@ -26,6 +29,7 @@
 	attributesfile = ~/.gitattributes
 	# Treat spaces before tabs, lines that are indented with 8 or more spaces, and all kinds of trailing whitespace as an error
 	whitespace = space-before-tab,indent-with-non-tab,trailing-space
+	quotepath = false
 
 [color]
 	# Use colors in Git commands that are capable of colored output when outputting to the terminal
@@ -65,3 +69,7 @@
 	pushInsteadOf = "git://gist.github.com/"
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
+[push]
+	default = current
+[branch]
+	autosetuprebase = always
