@@ -38,7 +38,6 @@ return {
             additional_args = function() return { "--hidden" } end,
             vimgrep_arguments = {
               "rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case",
-              "--hidden",
               "--glob=!.git/**",
               "--glob=!node_modules/**",
               "--glob=!tmp/**"
