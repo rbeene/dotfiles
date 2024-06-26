@@ -24,7 +24,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
-
+require('command_aliases').setup_aliases()
 
 local config = require("nvim-treesitter.configs")
 config.setup({
